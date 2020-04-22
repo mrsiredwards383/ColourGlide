@@ -1,7 +1,9 @@
 
 
 
-function colourCanR() {
+
+
+function colourCanR() { // Make Radial gradient
 
 var c = document.getElementById("colourCanvas");
 var ctx = c.getContext("2d");
@@ -25,4 +27,31 @@ radialGradient1.addColorStop(1, 'rgb(0, 255,   0)');
 ctx.fillStyle = radialGradient1;
 ctx.fillRect(0, 0, c.width, c.height);
 
+// Radian gradient moves with mouse
+
 };
+
+function showCoords(event) {
+  var c = document.getElementById("colourCanvas");
+  var ctx = c.getContext("2d");
+
+  c.setAttribute('width', window.innerWidth);
+  c.setAttribute('height', window.innerHeight);
+
+  var a1 = event.clientX;
+  var b1 = event.clientY;
+  var c1 = 30;
+
+  var a2 = event.clientX;
+  var b2 = event.clientY;
+  var c2 = 100;
+
+  var radialGradient1 = ctx.createRadialGradient(a1, b1, c1, a2, b2, c2);
+
+  radialGradient1.addColorStop(0, 'rgb(0,   0, 255)');
+  radialGradient1.addColorStop(1, 'rgb(0, 255,   0)');
+
+  ctx.fillStyle = radialGradient1;
+  ctx.fillRect(0, 0, c.width, c.height);
+  
+}
