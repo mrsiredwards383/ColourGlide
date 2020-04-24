@@ -27,7 +27,7 @@ radialGradient1.addColorStop(1, 'rgb(0, 255,   0)');
 ctx.fillStyle = radialGradient1;
 ctx.fillRect(0, 0, c.width, c.height);
 
-// Radian gradient moves with mouse
+// Radiant gradient moves with mouse
 
 };
 
@@ -48,10 +48,21 @@ function showCoords(event) {
 
   var radialGradient1 = ctx.createRadialGradient(a1, b1, c1, a2, b2, c2);
 
-  radialGradient1.addColorStop(0, 'rgb(0,   0, 255)');
-  radialGradient1.addColorStop(1, 'rgb(0, 255,   0)');
+  var redInt = parseInt((a1/c.width)*255);
+  var blueInt = parseInt((b1/c.width)*255);
+  var rgbColor1 = 'rgb(255,'+ redInt.toString() + ',' + blueInt.toString() +')';
+  var rgbColor2 = 'rgb('+ blueInt.toString() +',' + redInt.toString() + ',255)';
+
+
+  radialGradient1.addColorStop(0, rgbColor1);
+  radialGradient1.addColorStop(1, rgbColor2);
+
 
   ctx.fillStyle = radialGradient1;
   ctx.fillRect(0, 0, c.width, c.height);
   
 }
+
+//----------------------------------
+    
+    
